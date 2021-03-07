@@ -1,7 +1,6 @@
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta
-model = "falcon1"
 
 
 default_args = {
@@ -23,11 +22,10 @@ t1 = BashOperator(
     dag=dag
 )
 
-for model in range(falcon1, falcon9, falconheavy):
- t2 = BashOperator(
+t2 = BashOperator(
     task_id="print_data", 
     bash_command="cat /var/data/year={{ execution_date.year }}/rocket={{ params.rocket }}/data.csv", 
-    params={"rocket": model}, # falcon1/falcon9/falconheavy
+    params={"rocket": "falcon1"}, # falcon1/falcon9/falconheavy
     dag=dag
 )
 
