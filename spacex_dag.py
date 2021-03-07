@@ -23,7 +23,7 @@ t1 = BashOperator(
     dag=dag
 )
 
-for model in range(falcon1, falcon9, falconheavy)
+for model in range(falcon1, falcon9, falconheavy):
  t2 = BashOperator(
     task_id="print_data", 
     bash_command="cat /var/data/year={{ execution_date.year }}/rocket={{ params.rocket }}/data.csv", 
